@@ -7,9 +7,23 @@ const CharacterCard = () => {
       <div className="character__card__image">
         <img src={background} alt="Avatar" style={{ width: "200px" }} />
       </div>
-      <div className="character__information">
-        <div className="character__information__title"></div>
-        <div className="character__information__location"></div>
+      <div className="character__info">
+        <div className="character__info__section">
+          <h2 className="character__name">Rick Sunchez</h2>
+          <span className="character__status">Dead - Human</span>
+        </div>
+        <div className="character__info__section">
+          <span class="info__addition">Last known location:</span>
+          <a href="" className="character__info__link">
+            Citadel of Ricks
+          </a>
+        </div>
+        <div className="character__info__section">
+          <span class="info__addition">First seen in:</span>
+          <a href="" className="character__info__link">
+            Citadel of Ricks
+          </a>
+        </div>
       </div>
     </div>
   );
