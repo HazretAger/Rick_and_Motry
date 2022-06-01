@@ -5,7 +5,7 @@ const CharacterCard = () => {
   return (
     <div className="character__card">
       <div className="character__card__image">
-        <img src={background} alt="Avatar" style={{ width: "200px" }} />
+        <img src={background} alt="Avatar" />
       </div>
       <div className="character__info">
         <div className="character__info__section">
