@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  searchValue: "",
   characters: [],
 };
 
@@ -8,12 +9,12 @@ export const characterSlice = createSlice({
   name: "character",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    replaceSearchValue: (state, action) => {
+      state.searchValue = action.payload;
     },
   },
 });
 
-export const { increment } = characterSlice.actions;
+export const { replaceSearchValue } = characterSlice.actions;
 
 export default characterSlice.reducer;

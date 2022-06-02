@@ -3,16 +3,13 @@ import logo from "./img/logo.png";
 import background from "./img/background.jpg";
 import CharacterCard from "./components/CharacterCard";
 import SearchEl from "./components/SearchEl";
-import { useSelector } from "react-redux";
 import { useGetRandomCharactersQuery } from "./services/service";
 
 function App() {
-  // const { data, error, isLoading } = useGetRandomCharactersQuery([
-  //   1, 2, 3, 4, 5, 6, 7, 8,
-  // ]);
-  // console.log(data);
-  // const count = useSelector((state) => state.character.characters);
-  // console.log(count);
+  const { data: characters } = useGetRandomCharactersQuery([
+    1, 2, 3, 4, 5, 6, 7, 8,
+  ]);
+
   return (
     <div className="wrapper">
       <header className="header">
@@ -64,12 +61,12 @@ function App() {
                 <SearchEl />
               </div>
               <div className="character-block__cards">
-                <CharacterCard />
-                <CharacterCard />
-                <CharacterCard />
-                <CharacterCard />
-                <CharacterCard />
-                <CharacterCard />
+                {characters &&
+                  characters.map((character) => {
+                    return (
+                      <CharacterCard character={character} key={character.id} />
+                    );
+                  })}
               </div>
             </div>
           </div>

@@ -7,7 +7,11 @@ export const rickAndMortyApi = createApi({
     getRandomCharacters: builder.query({
       query: (quantity) => `/character/${quantity}`,
     }),
+    getCharacterByName: builder.query({
+      query: (name) => `/character/?name=${name}`,
+    }),
   }),
 });
 
-export const { useGetRandomCharactersQuery } = rickAndMortyApi;
+export const { useGetRandomCharactersQuery, useGetCharacterByNameQuery } =
+  rickAndMortyApi;
