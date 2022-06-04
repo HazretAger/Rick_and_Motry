@@ -1,20 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  searchValue: "",
-  characters: [],
+  characters: null,
 };
 
 export const characterSlice = createSlice({
   name: "character",
   initialState,
   reducers: {
-    replaceSearchValue: (state, action) => {
-      state.searchValue = action.payload;
+    setCharacters: (state, action) => {
+      state.characters = action.payload;
     },
   },
 });
 
-export const { replaceSearchValue } = characterSlice.actions;
+export const { setCharacters } = characterSlice.actions;
 
 export default characterSlice.reducer;

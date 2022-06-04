@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "./img/logo.png";
 import background from "./img/background.jpg";
 import CharacterCard from "./components/CharacterCard";
 import SearchEl from "./components/SearchEl";
 import { useGetRandomCharactersQuery } from "./services/service";
+import { useSelector } from "react-redux";
 
 function App() {
-  const { data: characters } = useGetRandomCharactersQuery([
+  const searchedCharacters = useSelector((state) => state.character.characters);
+  const { data: randomCharacters } = useGetRandomCharactersQuery([
     1, 2, 3, 4, 5, 6, 7, 8,
   ]);
+
+  const renderCharacters =
+    searchedCharacters === null ? randomCharacters : searchedCharacters;
 
   return (
     <div className="wrapper">
@@ -61,8 +66,8 @@ function App() {
                 <SearchEl />
               </div>
               <div className="character-block__cards">
-                {characters &&
-                  characters.map((character) => {
+                {renderCharacters &&
+                  renderCharacters.map((character) => {
                     return (
                       <CharacterCard character={character} key={character.id} />
                     );
