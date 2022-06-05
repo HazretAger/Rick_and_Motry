@@ -1,19 +1,21 @@
 import React, { useEffect } from "react";
 import logo from "./img/logo.png";
 import background from "./img/background.jpg";
-import CharacterCard from "./components/CharacterCard";
-import SearchEl from "./components/SearchEl";
+import { CharacterCard, SearchEl, PaginationEl } from "./components";
 import { useGetRandomCharactersQuery } from "./services/service";
 import { useSelector } from "react-redux";
 
 function App() {
-  const searchedCharacters = useSelector((state) => state.character.characters);
+  const currentCharacters = useSelector((state) => state.character.characters);
   const { data: randomCharacters } = useGetRandomCharactersQuery([
-    1, 2, 3, 4, 5, 6, 7, 8,
+    1, 2, 3, 4, 5, 6,
   ]);
 
   const renderCharacters =
-    searchedCharacters === null ? randomCharacters : searchedCharacters;
+    currentCharacters === null ? randomCharacters : currentCharacters;
+
+  const countPages =
+    currentCharacters && Math.ceil(currentCharacters.length / 4);
 
   return (
     <div className="wrapper">
@@ -72,6 +74,9 @@ function App() {
                       <CharacterCard character={character} key={character.id} />
                     );
                   })}
+              </div>
+              <div className="pagination__block">
+                {currentCharacters && <PaginationEl countPages={countPages} />}
               </div>
             </div>
           </div>
