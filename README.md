@@ -1,3 +1,22 @@
-### Deploy link
+# Rick and Morty
 
-https://rickandmorty-chi-snowy.vercel.app/
+This's a website where you can get information of any character from Rick and Morty serial.
+
+### Installing
+---
+```sh
+npm install
+```
+
+### Open in Browser
+---
+```sh
+npm start
+```
+
+### Wanna see result right now? Click on the button below.
+---
+
+<a href="https://rickandmorty-chi-snowy.vercel.app/">
+  <img src="https://img.shields.io/badge/Versel-black?style=for-the-badge&logo=Versel&logoColor=white" alt="Versel" style="width: 200px;"/>
+</a>
