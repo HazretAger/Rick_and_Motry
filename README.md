@@ -18,5 +18,5 @@ npm start
 ---
 
 <a href="https://rickandmorty-chi-snowy.vercel.app/">
-  <img src="https://img.shields.io/badge/Versel-black?style=for-the-badge&logo=Versel&logoColor=white" alt="Versel" style="width: 200px;"/>
+  <img src="https://img.shields.io/badge/Versel-black?style=for-the-badge&logo=Versel&logoColor=white" alt="Versel" style="width: 150px;"/>
 </a>
