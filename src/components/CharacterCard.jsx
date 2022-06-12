@@ -12,23 +12,23 @@ const CharacterCard = ({ character }) => {
 
   return (
     <div className="character__card">
-      <div className="character__card__image">
+      <div className="card__image">
         <img src={image} alt="Avatar" />
       </div>
-      <div className="character__info">
-        <div className="character__info__section">
+      <div className="card-info">
+        <div className="card-info__section">
           <h2 className="character__name">{characterName}</h2>
           <span className="character__status">
             {status} - {species}
           </span>
         </div>
-        <div className="character__info__section">
+        <div className="card-info__section">
           <span className="info__addition">Last known location:</span>
           <a href="" className="character__info__link">
             {locationName}
           </a>
         </div>
-        <div className="character__info__section">
+        <div className="card-info__section">
           <span className="info__addition">First seen in:</span>
           <a href="" className="character__info__link">
             {originName}
