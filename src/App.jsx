@@ -1,6 +1,6 @@
 import React from "react";
 import background from "./img/background.jpg";
-import { CharacterCard, SearchEl, PaginationEl } from "./components";
+import { CharacterCard, test, PaginationEl, SearchEl } from "./components";
 import { useGetRandomCharactersQuery } from "./services/service";
 import { useSelector } from "react-redux";
 
@@ -31,9 +31,9 @@ function App() {
         </div>
         <div className="main__character-block">
           <div className="character-block__container _container">
-            {/* <div className="search-container">
+            <div className="search-container">
               <SearchEl />
-            </div> */}
+            </div>
             <div className="cards-container">
               {renderCharacters &&
                 renderCharacters.map((character) => {
