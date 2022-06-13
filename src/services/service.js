@@ -4,14 +4,13 @@ export const rickAndMortyApi = createApi({
   reducerPath: "RickAndMortyApi",
   baseQuery: fetchBaseQuery({ baseUrl: "https://rickandmortyapi.com/api" }),
   endpoints: (builder) => ({
-    getRandomCharacters: builder.query({
-      query: (quantity) => `/character/${quantity}`,
-    }),
-    getCharacterByName: builder.query({
-      query: (name) => `/character/?name=${name}`,
+    getCharacters: builder.query({
+      query: (value) =>
+        `/character/${
+          value.length === 0 ? [1, 82, 43, 45, 56, 23] : `?name=${value}`
+        }`,
     }),
   }),
 });
 
-export const { useGetRandomCharactersQuery, useGetCharacterByNameQuery } =
-  rickAndMortyApi;
+export const { useGetCharactersQuery } = rickAndMortyApi;

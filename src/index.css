@@ -85,7 +85,7 @@ body {
 .main-block__title {
   font-size: 100px;
   font-weight: 800;
-  color: #000000;
+  color: #d0daff;
   letter-spacing: 0.2px;
   line-height: calc(80 / 58 * 100%);
 }
@@ -115,7 +115,7 @@ body {
 }
 
 .character-block__container {
-  padding: 80px 0px;
+  padding: 50px 0px;
 }
 
 .cards-container {

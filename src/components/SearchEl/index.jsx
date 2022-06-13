@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import "./index.scss";
 import { useDispatch } from "react-redux";
-import { setCharacters } from "../../store/characterSlice";
-import { useGetCharacterByNameQuery } from "../../services/service";
+import { setSearchValue } from "../../store/characterSlice";
 
 const SearchEl = () => {
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
-  const { data: searchedCharacters } = useGetCharacterByNameQuery(value);
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -15,8 +13,7 @@ const SearchEl = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { results } = searchedCharacters;
-    dispatch(setCharacters(results));
+    dispatch(setSearchValue(value));
   };
 
   return (

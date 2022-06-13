@@ -1,20 +1,14 @@
 import React from "react";
 import background from "./img/background.jpg";
-import { CharacterCard, test, PaginationEl, SearchEl } from "./components";
-import { useGetRandomCharactersQuery } from "./services/service";
+import { CharacterCard, SearchEl } from "./components";
+import { useGetCharactersQuery } from "./services/service";
 import { useSelector } from "react-redux";
 
 function App() {
-  const currentCharacters = useSelector((state) => state.character.characters);
-  const { data: randomCharacters } = useGetRandomCharactersQuery([
-    1, 2, 3, 4, 5, 6,
-  ]);
-
-  const renderCharacters =
-    currentCharacters === null ? randomCharacters : currentCharacters;
-
-  const countPages =
-    currentCharacters && Math.ceil(currentCharacters.length / 4);
+  const searchValue = useSelector((state) => state.character.searchValue);
+  const response = useGetCharactersQuery(searchValue);
+  const renderCharacter =
+    searchValue.length === 0 ? response.data : response.data.results;
 
   return (
     <div className="wrapper">
@@ -35,16 +29,13 @@ function App() {
               <SearchEl />
             </div>
             <div className="cards-container">
-              {renderCharacters &&
-                renderCharacters.map((character) => {
+              {renderCharacter &&
+                renderCharacter.map((character) => {
                   return (
                     <CharacterCard character={character} key={character.id} />
                   );
                 })}
             </div>
-            {/* <div className="pagination-container">
-              <PaginationEl />
-            </div> */}
           </div>
         </div>
       </main>
