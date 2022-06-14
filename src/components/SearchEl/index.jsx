@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import "./index.scss";
+import { useLazyGetCharactersQuery } from "../../services/service";
 import { useDispatch } from "react-redux";
-import { setSearchValue } from "../../store/characterSlice";
+import { setCharacters } from "../../store/characterSlice";
 
 const SearchEl = () => {
   const [value, setValue] = useState("");
+  const [getSearchCharacter] = useLazyGetCharactersQuery(value);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(setSearchValue(value));
+    const { data } = await getSearchCharacter(value);
+    dispatch(setCharacters(data));
   };
 
   return (

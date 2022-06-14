@@ -5,10 +5,11 @@ import { useGetCharactersQuery } from "./services/service";
 import { useSelector } from "react-redux";
 
 function App() {
-  const searchValue = useSelector((state) => state.character.searchValue);
-  const response = useGetCharactersQuery(searchValue);
-  const renderCharacter =
-    searchValue.length === 0 ? response.data : response.data.results;
+  const { data = [] } = useGetCharactersQuery();
+  const { results: searchCharacters } = useSelector(
+    (state) => state.character.currentCharacters
+  );
+  const renderCharacters = searchCharacters ?? data;
 
   return (
     <div className="wrapper">
@@ -28,13 +29,26 @@ function App() {
             <div className="search-container">
               <SearchEl />
             </div>
+            <nav className="nav">
+              <ul className="nav__list">
+                <li className="nav__item">
+                  <a href="" className="nav__link">
+                    Locations
+                  </a>
+                </li>
+                <li className="nav__item">
+                  <a href="" className="nav__link">
+                    Episodes
+                  </a>
+                </li>
+              </ul>
+            </nav>
             <div className="cards-container">
-              {renderCharacter &&
-                renderCharacter.map((character) => {
-                  return (
-                    <CharacterCard character={character} key={character.id} />
-                  );
-                })}
+              {renderCharacters.map((character) => {
+                return (
+                  <CharacterCard character={character} key={character.id} />
+                );
+              })}
             </div>
           </div>
         </div>

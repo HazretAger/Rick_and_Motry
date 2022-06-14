@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  characters: null,
-  searchValue: "",
+  currentCharacters: {
+    info: null,
+    results: null,
+  },
 };
 
 export const characterSlice = createSlice({
@@ -10,10 +12,7 @@ export const characterSlice = createSlice({
   initialState,
   reducers: {
     setCharacters: (state, action) => {
-      state.characters = action.payload;
-    },
-    setSearchValue: (state, action) => {
-      state.searchValue = action.payload;
+      state.currentCharacters = action.payload;
     },
   },
 });

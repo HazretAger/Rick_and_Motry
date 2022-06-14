@@ -5,12 +5,13 @@ export const rickAndMortyApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://rickandmortyapi.com/api" }),
   endpoints: (builder) => ({
     getCharacters: builder.query({
-      query: (value) =>
+      query: (value = null) =>
         `/character/${
-          value.length === 0 ? [1, 82, 43, 45, 56, 23] : `?name=${value}`
+          value === null ? [1, 82, 43, 45, 56, 23] : `?name=${value}`
         }`,
     }),
   }),
 });
 
-export const { useGetCharactersQuery } = rickAndMortyApi;
+export const { useGetCharactersQuery, useLazyGetCharactersQuery } =
+  rickAndMortyApi;

@@ -123,7 +123,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin: 30px;
+  margin: 10px 0;
 }
 
 .character__card {
@@ -225,4 +225,26 @@ body {
 .search-container {
   display: flex;
   justify-content: center;
+}
+
+/*-------NAV-BLOCK-----------------------------------------------------------------------------------------------------------*/
+
+.nav {
+  margin-top: 20px;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav__item:not(:last-child) {
+  margin: 0px 21px 0px 0px;
+}
+
+.nav__link {
+  color: #fff;
+  font-weight: 600;
+  line-height: calc(24 / 14 * 100%);
 }
